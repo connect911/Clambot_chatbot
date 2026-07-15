@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Messages</title>
+
+
+
+</head>
+<style>
+    body {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('bot\ background.jpg');
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+    
+    #favoritesContainer {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .favoriteMessage {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .messageContent {
+        flex: 1;
+    }
+    
+    .deleteButton {
+        background-color: #ff5555;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .deleteButton:hover {
+        background-color: #cc0000;
+    }
+    /* Container styles */
+</style>
+
+<body>
+    <h1>Favorite Messages</h1>
+    <div id="favoritesContainer">
+        <!-- Each favorite message displayed with a delete button -->
+
+        <!-- Repeat for each favorite message -->
+    </div>
+    <script>
+        // Client-side JavaScript to fetch and display favorite messages
+        fetch('/favorites')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch favorite messages');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the retrieved favorite messages
+                const favoritesContainer = document.getElementById('favoritesContainer');
+                data.forEach(favorite => {
+                    const favoriteMessage = document.createElement('div');
+                    favoriteMessage.classList.add('favoriteMessage');
+
+                    const messageContent = document.createElement('div');
+                    messageContent.classList.add('messageContent');
+                    messageContent.textContent = favorite.message;
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.classList.add('deleteButton');
+                    deleteButton.addEventListener('click', () => deleteFavorite(favorite.id)); // Pass the ID to deleteFavorite
+                    favoriteMessage.id = `favorite-${favorite.id}`;
+                    favoriteMessage.appendChild(messageContent);
+                    favoriteMessage.appendChild(deleteButton);
+                    favoritesContainer.appendChild(favoriteMessage);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        // Handle delete button click event
+        function deleteFavorite(id) {
+            fetch(`/favorites/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to delete favorite message');
+                    }
+                    // Remove the deleted favorite message from the UI
+                    const deletedMessage = document.getElementById(`favorite-${id}`);
+                    deletedMessage.remove();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>

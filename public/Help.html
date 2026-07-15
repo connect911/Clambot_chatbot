@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Page Styles */
+        
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('bot background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(214, 228, 218, 0.397);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* Header Styles */
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            color: #333;
+            font-size: 2.5em;
+        }
+        /* Logo Styles */
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+        /* Search Bar Styles */
+        
+        #toc-search-bar {
+            text-align: left;
+            margin: 1rem 0;
+        }
+        
+        #toc-search-bar {
+            width: 80%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        /* Table of Contents Styles */
+        
+        nav {
+            background: #b4babb;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        nav h2 {
+            color: #063c4b;
+            border-bottom: 2px solid #063c4b;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0.5rem 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        
+        nav ul li:hover {
+            background: #e9e9e9;
+        }
+        
+        .nav-highlight {
+            font-weight: bold;
+            background-color: #dfeffd;
+        }
+        /* Main Content Styles */
+        
+        main {
+            padding: 1rem;
+        }
+        
+        section {
+            margin-bottom: 2rem;
+        }
+        
+        section h2 {
+            color: #063c4b;
+            border-bottom: 2px solid #063c4b;
+            padding-bottom: 0.5rem;
+        }
+        
+        section h3 {
+            color: #333;
+            margin-top: 1rem;
+        }
+        
+        section p,
+        section ol {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        section ol {
+            margin-left: 20px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem 0;
+        }
+        /* Contact Form Styles */
+        
+        form {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            background: #063c4b;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #063c4b;
+        }
+        /* Footer Styles */
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #b4babb;
+            border-top: 1px solid #ddd;
+            margin-top: 2rem;
+        }
+        
+        footer a {
+            text-decoration: none;
+            color: #063c4b;
+        }
+        /* Contact Support Styles */
+        
+        .contact-support {
+            font-family: Arial, sans-serif;
+            background-color: #b4babb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-support h2 {
+            color: #063c4b;
+            border-bottom: 2px solid #063c4b;
+            padding-bottom: 10px;
+        }
+        
+        .contact-support p {
+            font-size: 1.1em;
+            color: #063c4b;
+        }
+        
+        .contact-support a {
+            color: #051a28;
+            text-decoration: none;
+        }
+        
+        .contact-support h3 {
+            color: #063c4b;
+            margin-top: 20px;
+        }
+        
+        .contact-support ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .contact-support ul li {
+            flex: 1;
+        }
+        
+        .contact-support ul li a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: #333;
+        }
+        
+        .contact-support ul li a img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="Logo.png" alt="Profile Image">
+        </div>
+        <header>
+            <h1>Welcome to the Help Center</h1>
+        </header>
+
+        <section id="search">
+        </section>
+
+        <nav>
+            <h2>How can we help?</h2>
+            <input type="text" id="toc-search-bar" placeholder="Search in topics listed below...">
+            <ul id="toc">
+                <li><a href="#sign-up">How to Sign Up</a></li>
+                <li><a href="#email-verification">Email Verification</a></li>
+                <li><a href="#login">How to Log In</a></li>
+                <li><a href="#chat">Using the Chat Interface</a></li>
+                <li><a href="#contact-support">Contact Support</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="sign-up">
+                <h2>How to Sign Up</h2>
+                <p>Follow these steps to create your account:</p>
+                <ol>
+                    <li>Go to the landing page and click the "Get Started" button.</li>
+                    <li>You will be redirected to the signup form. Fill in your details (Name, Email, Password).</li>
+                    <li>Click the "Submit" button to complete the signup process.</li>
+                </ol>
+            </section>
+
+            <section id="email-verification">
+                <h2>Email Verification</h2>
+                <p>After signing up, you need to verify your email:</p>
+                <ol>
+                    <li>Check your email inbox for a verification email from our website.</li>
+                    <li>Open the email and click on the verification link.</li>
+                    <li>You will be redirected to the login page of the website.</li>
+                </ol>
+            </section>
+
+            <section id="login">
+                <h2>How to Log In</h2>
+                <p>Once your email is verified, you can log in to your account:</p>
+                <ol>
+                    <li>Go to the login page.</li>
+                    <li>Enter your registered email and password.</li>
+                    <li>Click the "Login" button to access the platform.</li>
+                </ol>
+            </section>
+
+            <section id="chat">
+                <h2>Using the Chat Interface</h2>
+                <p>After logging in, you can use the chat interface to communicate:</p>
+                <ol>
+                    <li>Navigate to the chat page from the dashboard.</li>
+                    <li>Type your message in the input box and press Enter to send.</li>
+                    <li>Receive responses in real-time and continue the conversation.</li>
+                </ol>
+            </section>
+
+            <section id="contact-support" class="contact-support">
+                <h2>Contact Support</h2>
+                <p>Email Support: <a href="mailto:calmbot01@gmail.com">calmbot01@gmail.com</a></p>
+
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/share/G81P7ZRaMCUdFV5G/?mibextid=qi2Omg" target="_blank">
+                            <img src="fb.png" alt="Facebook">
+                            <span>Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCXglYVd6TWP1BNU3pEpTrsw" target="_blank">
+                            <img src="Youtube.png" alt="YouTube">
+                            <span>YouTube</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/calm_bot" target="_blank">
+                            <img src="insta.png" alt="Instagram">
+                            <span>Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/calmbot-chatbot-2019b62a2/" target="_blank">
+                            <img src="LinkedIN.png" alt="LinkedIn">
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <a href="#top">Back to Top</a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tocSearchInput = document.getElementById("toc-search-bar");
+            const tocItems = document.querySelectorAll("#toc li");
+            tocSearchInput.addEventListener("input", function() {
+                const searchTerm = this.value.toLowerCase();
+                // Filter content based on search term
+                // Replace this with your actual search functionality
+            });
+
+            tocSearchInput.addEventListener("input", function() {
+                const tocSearchTerm = this.value.toLowerCase();
+                tocItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(tocSearchTerm)) {
+                        item.classList.add("nav-highlight");
+                    } else {
+                        item.classList.remove("nav-highlight");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

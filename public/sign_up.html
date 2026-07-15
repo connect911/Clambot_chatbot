@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Logo calmbot remove bg.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('bot\ background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+        
+        .page {
+            background-color: rgba(214, 228, 218, 0.397);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            margin: 27em;
+            margin-top: 5rem;
+            border-radius: 18px;
+        }
+        
+        #full_name {
+            height: 39px;
+            width: 200px;
+            padding-left: 12px;
+            border: 2px solid rgb(18, 19, 82);
+            border-radius: 12px;
+        }
+        
+        #email {
+            height: 39px;
+            width: 200px;
+            padding-left: 12px;
+            border: 2px solid rgb(18, 19, 82);
+            border-radius: 12px;
+        }
+        
+        #pass {
+            height: 39px;
+            width: 200px;
+            padding-left: 12px;
+            border: 2px solid rgb(18, 19, 82);
+            border-radius: 12px;
+        }
+        
+        #submit {
+            height: 35px;
+            width: 120px;
+            margin-left: 3rem;
+            border-radius: 12px;
+            background-color: rgba(17, 60, 100, 0.788);
+            color: white;
+            border: none;
+        }
+        
+        h1 {
+            font-family: 'Lato', sans-serif;
+            color: black;
+            line-height: 0%;
+        }
+        
+        .logo {
+            height: 150px;
+            width: auto;
+            margin: 0 auto 20px;
+            display: block;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="form">
+            <form action="/register" method="POST">
+                <img src="logo_calmbot-removebg-preview.png" class="logo">
+                <h1>Create Account</h1><br>
+                <label for="full_name">
+                    <input type="text" name="full_name" id="full_name" placeholder="Full Name" required>
+                </label><br><br>
+                <label for="email">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </label><br><br>
+                <label for="pass">
+                    <input type="password" name="pass" id="pass" placeholder="Password" required>
+                </label><br><br>
+                <h4>Already registered?<a href="login.html">Login here</a></h4>
+                <input type="submit" name="submit" id="submit"><br>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
