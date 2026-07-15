@@ -1,4 +1,4 @@
-# Clambot_chatbot
+# Calmbot_chatbot
 AI powered chatbot that provide emotional assistance to overcome stress, depression and anxiety
 
 Dependencies that need to install to run server file.
